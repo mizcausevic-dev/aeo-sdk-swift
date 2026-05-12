@@ -10,7 +10,7 @@ import Foundation
 
 public let aeoProtocolVersion: String = "0.1"
 
-public enum EntityType: String, Codable, Equatable, Hashable, CaseIterable {
+public enum EntityType: String, Codable, Equatable, Hashable, CaseIterable, Sendable {
     case person = "Person"
     case organization = "Organization"
     case product = "Product"
@@ -18,7 +18,7 @@ public enum EntityType: String, Codable, Equatable, Hashable, CaseIterable {
     case concept = "Concept"
 }
 
-public enum VerificationType: String, Codable, Equatable, Hashable, CaseIterable {
+public enum VerificationType: String, Codable, Equatable, Hashable, CaseIterable, Sendable {
     case domain
     case dns
     case github
@@ -27,11 +27,11 @@ public enum VerificationType: String, Codable, Equatable, Hashable, CaseIterable
     case wellKnownURI = "well-known-uri"
 }
 
-public enum Confidence: String, Codable, Equatable, Hashable, CaseIterable {
+public enum Confidence: String, Codable, Equatable, Hashable, CaseIterable, Sendable {
     case high, medium, low
 }
 
-public enum AuditMode: String, Codable, Equatable, Hashable, CaseIterable {
+public enum AuditMode: String, Codable, Equatable, Hashable, CaseIterable, Sendable {
     case none, signature, endpoint
 }
 
