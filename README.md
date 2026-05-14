@@ -1,9 +1,11 @@
 # aeo-sdk-swift
 
-Swift SDK for the [AEO Protocol v0.1](https://github.com/mizcausevic-dev/aeo-protocol-spec) — parse, build, validate, and fetch AEO declaration documents. Foundation-only, no third-party dependencies.
-
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20iOS%20%7C%20Linux-blue.svg)](https://swift.org)
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-success.svg)](https://swift.org/package-manager/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+Swift SDK for the [AEO Protocol v0.1](https://github.com/mizcausevic-dev/aeo-protocol-spec) — parse, build, validate, and fetch AEO declaration documents. Foundation-only, no third-party dependencies.
 
 Completes the AEO SDK family at **five languages** alongside the Python, TypeScript, Rust, and Go SDKs.
 
