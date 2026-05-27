@@ -1,0 +1,31 @@
+name: Release
+
+# Fires on a semver tag. SwiftPM doesn't use a central registry — consumers
+# resolve packages directly from the Git tag. This workflow verifies the build
+# is green on the tagged commit and creates a GitHub Release pointing at the
+# CHANGELOG so consumers see the new version.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write   # needed to create the GitHub Release
+
+jobs:
+  release:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify SwiftPM build is green at this tag
+        run: swift build -c release
+      - name: Verify SwiftPM tests pass
+        run: swift test
+      - name: Create GitHub Release
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --notes "See [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/${GITHUB_REF_NAME}/CHANGELOG.md). Add the package via Xcode → File → Add Package Dependencies → \`https://github.com/${GITHUB_REPOSITORY}\` → exact version \`${GITHUB_REF_NAME#v}\`."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
